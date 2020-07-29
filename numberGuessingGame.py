@@ -57,25 +57,29 @@ def start_game():
             elif play_again_request.lower() == "no":
                 end_of_game()
                 break
+            else:
+                print("\n")
+                print("Kindly make a appropriate request(yes/no)")
 
     def show_help():
         print("""
     1. Enter a number between 0-20 in the prompt to see if your guess was right.
     2. You will be notified about your status.
         ** For example:
-            If your guess was greater than the actual number the prompter will notify ("It is lower") 
-            If your guess was less than the actual number the prompter will notify ("It is higher")  
+            If your guess was greater than the actual number the prompter will notify ("It is lower")
+            If your guess was less than the actual number the prompter will notify ("It is higher")
             Go on trying until the number matches with actual number.
-            Finally if you want to play again type "Yes" in the prompt or "NO" to quit.    
+            Finally if you want to play again type "Yes" in the prompt or "NO" to quit.
             Thank You for using...
         """)
 
     def end_of_game():
+        print("\n")
         sys.exit("Game Ended! Thank you for Playing..")
 
-    print("""       
+    print("""
                     ---------------------------------------------
-                     Welcome! Lets play the Number Guessing game       
+                     Welcome! Lets play the Number Guessing game
                     ---------------------------------------------
     """)
     print("\n")
