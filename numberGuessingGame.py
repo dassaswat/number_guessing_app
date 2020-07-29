@@ -9,25 +9,30 @@ def start_game():
     def core_game_structure():
         random_num = random.randint(0, 20)
         while True:
-            entered_num = input('Kindly enter a number between (0-20):    ')
-            entered_num = int(entered_num)
-            if entered_num in range(0, 20):
-                if entered_num > random_num:
-                    print("It is lower")
-                    attempt_count.append(int("1"))
-                    continue
-                elif entered_num < random_num:
-                    print("It is higher")
-                    attempt_count.append(int("1"))
-                    continue
-                elif entered_num == random_num:
-                    attempt_count.append(int("1"))
-                    print("Total attempts : {}".format(attempt_counter()))
-                    play_again()
-                    break
-            else:
-                print("Please try again. Enter a number between (0-20)")
+            try:
+                entered_num = input('Kindly enter a number between (0-20):    ')
+                entered_num = int(entered_num)
+            except ValueError:
+                print("Wrong Entry! Try again..")
                 continue
+            else:
+                if entered_num in range(0, 21):
+                    if entered_num > random_num:
+                        print("It is lower")
+                        attempt_count.append(int("1"))
+                        continue
+                    elif entered_num < random_num:
+                        print("It is higher")
+                        attempt_count.append(int("1"))
+                        continue
+                    elif entered_num == random_num:
+                        attempt_count.append(int("1"))
+                        print("Total attempts : {}".format(attempt_counter()))
+                        play_again()
+                        break
+                else:
+                    print("Please try again. Enter a number between (0-20)")
+                    continue
 
     def high_score_calculator():
         high_scores.append(sum(attempt_count))
@@ -55,7 +60,7 @@ def start_game():
 
     def show_help():
         print("""
-    1. Enter a number between 1-20 in the prompt to see if your guess was right.
+    1. Enter a number between 0-20 in the prompt to see if your guess was right.
     2. You will be notified about your status.
         ** For example:
             If your guess was greater than the actual number the prompter will notify ("It is lower") 
