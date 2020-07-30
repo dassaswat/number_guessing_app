@@ -5,6 +5,7 @@ import sys
 def start_game():
     high_scores = []
     attempt_count = []
+    name = []
 
     def core_game_structure():
         random_num = random.randint(0, 20)
@@ -75,7 +76,13 @@ def start_game():
 
     def end_of_game():
         print("\n")
-        sys.exit("Game Ended! Thank you for Playing..")
+        sys.exit("Game Ended! Thank you {} for Playing the game..".format(name.pop()))
+
+    def user_name():
+        player_name = input("Kindly enter your name to proceed:    ")
+        print("Hello {}, Let's play the number guessing game".format(player_name))
+        name.append(player_name)
+
 
     print("""
                     ---------------------------------------------
@@ -83,8 +90,7 @@ def start_game():
                     ---------------------------------------------
     """)
     print("\n")
-    player_name = input("Kindly enter your name to proceed:    ")
-    print("Hello {}, Let's play the number guessing game".format(player_name))
+    user_name()
     show_help()
     core_game_structure()
     play_again()
