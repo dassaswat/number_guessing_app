@@ -3,7 +3,6 @@ import sys
 
 
 def start_game():
-    high_scores = []
     attempt_count = []
     name = []
 
@@ -35,11 +34,6 @@ def start_game():
                     print("Please try again. Enter a number between (0-20)")
                     continue
 
-    def high_score_calculator():
-        high_scores.append(sum(attempt_count))
-        last_score_record = high_scores.copy()
-        print("HIGH SCORE: {}".format(last_score_record.pop()))
-
     def attempt_counter():
         return sum(attempt_count)
 
@@ -51,7 +45,7 @@ def start_game():
         while True:
             play_again_request = input("Would you like to play the game again(Yes/No):    ")
             if play_again_request.lower() == "yes":
-                high_score_calculator()
+                print("HIGH SCORE: {}".format(attempt_counter()))
                 attempt_count_deleter()
                 core_game_structure()
                 break
